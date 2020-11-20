@@ -24,13 +24,13 @@ The geminiconda environment provides the GEMINI IRAF packages needed for the red
 
 The pipeline was succesfully tested with python2.7 on Linux systems.
 
-#Usage
+# Usage
 The pipeline must be run in a directory containing a 'raw' file with the bias, flat, arc, science and standard star data obtained with the GMOS. The path of the 'raw' directory can be modified in the script. The pipeline is run using:
 
 ```
 python gmos-spike.py
 ```
 
-#License 
+# License 
 GMOS-SPiKE operates under the MIT license. Please, check the LICENSE file for more information.
 
