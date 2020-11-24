@@ -16,7 +16,7 @@ GMOS-SPiKE makes use of PyRAF, using different Python packages with IRAF reducti
 The pipeline needs to be run on a geminiconda environment, which can be installed with the following commands:
 
 ```
-conda config --add channels http://ssb.stsci.edu/astrocondaconda
+conda config --add channels http://astroconda.gemini.edu/public
 create -n geminiconda python=2.7 iraf-all pyraf-all stsci gemini
 ```
 
@@ -25,11 +25,12 @@ The geminiconda environment provides the GEMINI IRAF packages needed for the red
 The pipeline was succesfully tested with python2.7 on Linux systems.
 
 # Usage
-The pipeline must be run in a directory containing a 'raw' file with the bias, flat, arc, science and standard star data obtained with the GMOS. The path of the 'raw' directory can be modified in the script. The pipeline is run using:
+The pipeline must be run in a directory containing a 'raw' file with the bias, flat, arc, science and standard star data obtained with the GMOS. The path of the 'raw' directory can be modified in the script. The pipeline can be run using:
 
 ```
 python gmos-spike.py
 ```
+The pipeline is divided in two blocks: the reduction of the standard star spectrum and the reduction of the science object, for which the sensitivity function from the standard star is applied. First, the pipeline reads through the files at the 'raw' directory and prints the available values of the central wavelength for the standard star spectra. The user must type the preferred central wavelength and the pipeline then selects the files of bias, flat, lamp and observed spectrum that match that value. The same is done for the science object.   
 
 # License 
 GMOS-SPiKE operates under the MIT license. Please, check the LICENSE file for more information.
