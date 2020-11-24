@@ -32,6 +32,21 @@ python gmos-spike.py
 ```
 The pipeline is divided in two blocks: the reduction of the standard star spectrum and the reduction of the science object, for which the sensitivity function from the standard star is applied. First, the pipeline reads through the files at the 'raw' directory and prints the available values of the central wavelength for the standard star spectra. The user must type the preferred central wavelength and the pipeline then selects the files of bias, flat, lamp and observed spectrum that match that value. The same is done for the science object.   
 
+# Output
+The main output of the reduction process is the science spectrum, corrected by bias, flat, quantum efficiency, bad pixels, bad columns, excessive noise and calibrated by wavelength and flux. Other files produced by the intermediate steps of the process are also available as output. The prefix of their names indicate the reduction step and the GEMINI IRAF package that produced the file:
+        
+        PACKAGE PREFIX FUNCTION
+      - gsreduce    gs             Subtract bias, apply overscan and cosmic ray correction 
+      - gemfix      gemgs          Improve cosmic ray and bad pixel correction
+      - gqecorr     qgemgs         Apply quantum efficiency correction
+      - gsreduce    gsqgemgs       Apply flat field correction 
+      - fixpix      bcgsqgemgs     Interpolate bad columns
+      - gstransform tbcgsqgemgs    Apply wavelength calibration
+      - gsskysub    stbcgsqgemgs   Subtract sky background 
+      - gsextract   estbcgsqgemgs  Extract spectrum
+      - gscalibrate cestbcgsqgemgs Calibrate spectrum
+       
+
 # License 
 GMOS-SPiKE operates under the MIT license. Please, check the LICENSE file for more information.
 
