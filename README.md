@@ -46,7 +46,7 @@ The main output of the reduction process is the science spectrum, corrected by b
       - gsextract   estbcgsqgemgs  Extract spectrum
       - gscalibrate cestbcgsqgemgs Calibrate spectrum
 
-An important feature of the pipeline is the production of analysis figures to check the quality of the intermediate reduction steps (eg. the result of the wavelength or flux calibration, cosmic ray subtraction, spectrum extraction, etc). The figures are printed during the reduction and saved in the same directory where the pipeline is saved. The printing of the images might be disabled in the script.
+An important feature of the pipeline is the production of analysis figures to check the quality of the intermediate reduction steps (e.g. the result of the wavelength or flux calibration, cosmic ray subtraction, spectrum extraction, etc). The figures are printed during the reduction and saved in the same directory where the pipeline is saved. The printing of the images might be disabled in the script.
 
 # License 
 GMOS-SPiKE operates under the MIT license. Please, check the LICENSE file for more information.
