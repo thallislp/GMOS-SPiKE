@@ -22,7 +22,7 @@ create -n geminiconda python=2.7 iraf-all pyraf-all stsci gemini
 
 The geminiconda environment provides the GEMINI IRAF packages needed for the reduction of GMOS data. The pipeline uses the following GEMINI IRAF packages: gbias, gsreduce, gswavelength, gstransform, gqecorr, gmosaic, gsflat, gemfix, gsskysub, gsextract, gsstandard and gscalibrate. 
 
-The pipeline was succesfully tested with python2.7 on Linux systems.
+The pipeline was successfully tested with python2.7 on Linux systems.
 
 # Usage
 The pipeline must be run in a directory containing a 'raw' file with the bias, flat, arc, science and standard star data obtained with the GMOS. The path of the 'raw' directory can be modified in the script. The pipeline can be run using:
@@ -30,12 +30,12 @@ The pipeline must be run in a directory containing a 'raw' file with the bias, f
 ```
 python gmos-spike.py
 ```
-The pipeline is divided in two blocks: the reduction of the standard star spectrum and the reduction of the science object, for which the sensitivity function from the standard star is applied. First, the pipeline reads through the files at the 'raw' directory and prints the available values of the central wavelength for the standard star spectra. The user must type the preferred central wavelength and the pipeline then selects the files of bias, flat, lamp and observed spectrum that match that value. The same is done for the science object.   
+The pipeline is divided into two blocks: the reduction of the standard star spectrum and the reduction of the science object, for which the sensitivity function from the standard star is applied. First, the pipeline reads through the files at the 'raw' directory and prints the available values of the central wavelength for the standard star spectra. The user must type the preferred central wavelength and the pipeline then selects the files of bias, flat, lamp and observed spectrum that match that value. The same is done for the science object.   
 
 # Output
 The main output of the reduction process is the science spectrum, corrected by bias, flat, quantum efficiency, bad pixels, bad columns, excessive noise and calibrated by wavelength and flux. Other files produced by the intermediate steps of the process are also available as output. The prefix of their names indicate the reduction step and the GEMINI IRAF package that produced the file:
         
-        PACKAGE PREFIX FUNCTION
+        PACKAGE     PREFIX         FUNCTION
       - gsreduce    gs             Subtract bias, apply overscan and cosmic ray correction 
       - gemfix      gemgs          Improve cosmic ray and bad pixel correction
       - gqecorr     qgemgs         Apply quantum efficiency correction
@@ -45,7 +45,8 @@ The main output of the reduction process is the science spectrum, corrected by b
       - gsskysub    stbcgsqgemgs   Subtract sky background 
       - gsextract   estbcgsqgemgs  Extract spectrum
       - gscalibrate cestbcgsqgemgs Calibrate spectrum
-       
+
+An important feature of the pipeline is the production of analysis figures to check the quality of the intermediate reduction steps (eg. the result of the wavelength or flux calibration, cosmic ray subtraction, spectrum extraction, etc). The figures are printed during the reduction and saved in the same directory where the pipeline is saved. The printing of the images might be disabled in the script.
 
 # License 
 GMOS-SPiKE operates under the MIT license. Please, check the LICENSE file for more information.
